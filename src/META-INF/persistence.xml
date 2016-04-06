@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<!--
+	 Para que essa configuração aconteça é nescessario incluir a pasta WebContent 
+	 no classpath da aplicação. Para fazer isso, basta abrir as propriedades do 
+	 projeto, lá na opção "java build path" clique no botão "Add folder", então 
+	 é só selecionar a pasta WebContent. 
+	-->
+		
+	<persistence-unit name="fj21" transaction-type="RESOURCE_LOCAL">
+		<!-- provedor/implementacao do JPA -->
+		<!-- <provider>org.hibernate.ejb.hibernatePersistence</provider>
+
+		
+		
+		<class>br.com.caelum.tarefas.modelo.Tarefa</class>
+		<class>br.com.caelum.tarefas.modelo.Usuario</class>
+		-->
+		<!-- entidade mapeada -->
+
+		<properties>
+			<!-- dados da Conexão -->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/fj21_tarefas" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="rodrigo@2016" />
+
+			<!-- propriedade do hibernate -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+
+			<!-- show_sql e format_sql fazem com que todo o SQL gerado pelo Hibernate 
+				apareça no console -->
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+
+			<!-- atualiza o banco, gera as tabelas se for preciso -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>
+</persistence>
